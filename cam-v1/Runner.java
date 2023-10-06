@@ -1,7 +1,27 @@
 public class Runner {
+    public Runner(){
+        VirtualPet p = new VirtualPet();
+
+        p.sleep();
+
+        
+        takeABeat(1000);
+
+    
+
+        
+    }
+
+    public void takeABeat(int milliseconds){
+        try {
+            Thread.sleep(milliseconds); //milliseconds
+        } catch(Exception e){
+        
+        }
+
+        
+    }
     public static void main(String [] args ){
-        VirtualPet v = new VirtualPet();
-        v.feed();
-        v.exercise();
+        new Runner();
     }
 }
