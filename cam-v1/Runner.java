@@ -3,13 +3,9 @@ public class Runner {
         VirtualPet p = new VirtualPet();
 
         p.sleep();
-
-        
         takeABeat(1000);
+        p.sleep();
 
-    
-
-        
     }
 
     public void takeABeat(int milliseconds){
@@ -18,8 +14,6 @@ public class Runner {
         } catch(Exception e){
         
         }
-
-        
     }
     public static void main(String [] args ){
         new Runner();
