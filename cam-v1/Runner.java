@@ -6,44 +6,67 @@ public class Runner {
 
         VirtualPet p = new VirtualPet();
 
-        // p.exercise();
-        // takeABeat(1000);
-        // p.feed();
+        // String ans = getAnswer("How are you?");
 
-        String ans = getAnswer("How are you?");
+        // if(ans.equalsIgnoreCase("Good")){
+        //     p.respond("Nice!");
+        // }
+        // if(ans.equalsIgnoreCase("Bad")){
+        //     p.respond("sorry to hear that!");
+        // }
 
-        if(ans.equalsIgnoreCase("Good")){
-            p.respond("Nice!");
-        }
-        if(ans.equalsIgnoreCase("Bad")){
-            p.respond("sorry to hear that!");
-        }
+        String ans1 = getAnswer("What do you want me to do?, Exercise, Feed or Sleep or Game!");
 
-        String ans1 = getAnswer("What is your favorite animal?");
+        if(ans1.equalsIgnoreCase("exercise"))
+        p.exercise();
         
-        p.respond("Whoa I can turn into a " + ans1);
+        if(ans1.equalsIgnoreCase("feed"))
+        p.feed();
+
+        if(ans1.equalsIgnoreCase("sleep"))
+        p.sleep();
+
+        if(ans1.equalsIgnoreCase("game")){
+        
+        String ans4 = getAnswer("Rock, Paper or Scissors?");
+        p.game(ans4);
+
+        }
+
+
+
+        takeABeat(3000);
+        String ans2 = getAnswer("What is your favorite animal?");
+        
+        p.respond("Whoa I can turn into a " + ans2);
         p.turnIntoAnimal(ans1);
-        takeABeat(1000);
+        takeABeat(1500);
         p.defaultMode();
-        p.respond("Isnt that cool!");
-        
-        String ans2 = getAnswer("What would you like to do with me?");
 
-        if(ans2.equals("die"))
-        p.dead();
+        takeABeat(3000);
+        String ans3 = getAnswer("What do you think about me?");
+        
+        if(ans3.equalsIgnoreCase("you suck"))
+        p.gotInsulted();
         else
-        p.respond("Cool!");
+        p.confused();
+
+        
+
 
     }
 
     public String getAnswer(String q){
-        String s = (String)JOptionPane.showInputDialog(
+        String s = (String)
+
+        JOptionPane.showInputDialog(
                     new JFrame(),
                     q,
                     "Get a response",
-                    JOptionPane.PLAIN_MESSAGE
+                    JOptionPane.PLAIN_MESSAGE,
                     
         );
+        
         return s;
 
     }

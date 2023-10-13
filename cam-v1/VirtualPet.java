@@ -13,7 +13,7 @@ public class VirtualPet {
     public VirtualPet() {
         face = new VirtualPetFace();
         face.setImage("normal");
-        face.setMessage("Hello.");
+        face.setMessage("Hello I am your pet!");
     }
     
     
@@ -46,6 +46,36 @@ public class VirtualPet {
         face.setImage("dead");
     }
 
+    public void game(String answer){
+        int x = (int)(Math.random()*2); //0 - 2
+        String rps = "";
+        
+        if(x == 0)
+        rps = "rock";
+        if(x == 1)
+        rps = "paper";
+        if(x == 2)
+        rps = "scissors";
+
+
+        if(answer.equalsIgnoreCase("rock")){
+        face.setImage("joyful");
+        face.setMessage("I won!");
+        }
+
+        if(answer.equalsIgnoreCase("rock")){
+        face.setImage("annoyed");
+        face.setMessage("Draw?!");
+        }
+
+        if(answer.equalsIgnoreCase("rock")){
+        face.setImage("shcoled");
+        face.setMessage("I lost?!");
+        }
+
+        
+    }
+
     public void respond(String message){
         face.setMessage(message);
     }
@@ -53,10 +83,19 @@ public class VirtualPet {
     public void turnIntoAnimal(String animal){
         if(animal.equalsIgnoreCase("dog"))
         face.setImage("dog");
+
         if(animal.equalsIgnoreCase("cat"))
         face.setImage("cat");
-        else
-        face.setMessage("I don't know that animal!");
     }
+        
+    public void gotInsulted(){
+        face.setImage("enraged");
+    }
+
+    public void confused(){
+        face.setMessage("I don't understand!");
+        face.setImage("astonished");
+    }
+
 
 } // end Virtual Pet
