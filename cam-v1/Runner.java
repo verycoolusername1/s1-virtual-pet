@@ -39,11 +39,10 @@ public class Runner {
         String ans2 = getAnswer("What is your favorite animal?");
         
         p.respond("Whoa I can turn into a " + ans2);
-        p.turnIntoAnimal(ans1);
-        takeABeat(1500);
+        p.turnIntoAnimal(ans2);
+        takeABeat(3000);
         p.defaultMode();
 
-        takeABeat(3000);
         String ans3 = getAnswer("What do you think about me?");
         
         if(ans3.equalsIgnoreCase("you suck"))
@@ -63,7 +62,7 @@ public class Runner {
                     new JFrame(),
                     q,
                     "Get a response",
-                    JOptionPane.PLAIN_MESSAGE,
+                    JOptionPane.PLAIN_MESSAGE
                     
         );
         

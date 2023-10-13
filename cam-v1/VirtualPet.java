@@ -69,7 +69,7 @@ public class VirtualPet {
         }
 
         if(answer.equalsIgnoreCase("rock")){
-        face.setImage("shcoled");
+        face.setImage("shocked");
         face.setMessage("I lost?!");
         }
 
@@ -86,6 +86,15 @@ public class VirtualPet {
 
         if(animal.equalsIgnoreCase("cat"))
         face.setImage("cat");
+
+        if(animal.equalsIgnoreCase("bird"))
+        face.setImage("bird");
+
+        if(animal.equalsIgnoreCase("fish"))
+        face.setImage("fish");
+
+        // face.setMessage("I don't know that animal!");
+        // face.setImage("confused");
     }
         
     public void gotInsulted(){
