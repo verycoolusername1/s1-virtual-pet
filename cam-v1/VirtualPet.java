@@ -47,33 +47,63 @@ public class VirtualPet {
     }
 
     public void game(String answer){
-        int x = (int)(Math.random()*2); //0 - 2
-        String rps = "";
-        
-        if(x == 0)
-        rps = "rock";
-        if(x == 1)
-        rps = "paper";
-        if(x == 2)
-        rps = "scissors";
+        int x = (int)(Math.random()*3); //0 - 2
+        int result = 0;
+        face.setMessage("You did " + answer + "...");
 
-
-        if(answer.equalsIgnoreCase("rock")){
-        face.setImage("joyful");
-        face.setMessage("I won!");
+        if(x == 0){//rock
+            face.setImage("rock");
+            face.setMessage("I did rock!");
+            if(answer.equalsIgnoreCase("rock"))
+            result = 0;
+            if(answer.equalsIgnoreCase("paper"))
+            result = -1;
+            if(answer.equalsIgnoreCase("scissors"))
+            result = 1;
+            
         }
 
-        if(answer.equalsIgnoreCase("rock")){
-        face.setImage("annoyed");
-        face.setMessage("Draw?!");
+        if(x == 1){//paper
+            face.setImage("paper");
+            face.setMessage("I did paper!");
+            if(answer.equalsIgnoreCase("rock"))
+            result = 1;
+            if(answer.equalsIgnoreCase("paper"))
+            result = 0;
+            if(answer.equalsIgnoreCase("scissors"))
+            result = -1;
+
         }
 
-        if(answer.equalsIgnoreCase("rock")){
-        face.setImage("shocked");
-        face.setMessage("I lost?!");
+        if(x == 2){//scissors
+            face.setImage("scissors");
+            face.setMessage("I did scissors!");
+            if(answer.equalsIgnoreCase("rock"))
+            result = -1;
+            if(answer.equalsIgnoreCase("paper"))
+            result = 1;
+            if(answer.equalsIgnoreCase("scissors"))
+            result = 0;
+
         }
 
-        
+        if(result == 1){
+            takeABeat(3000);
+            face.setImage("joyful");
+            face.setMessage("I won!");
+        }
+
+        if(result == 0){
+            takeABeat(3000);
+            face.setImage("annoyed");
+            face.setMessage("Draw?!");
+        }
+
+        if(result == -1){
+            takeABeat(3000);
+            face.setImage("shocked");
+            face.setMessage("I lost?!");
+        }
     }
 
     public void respond(String message){
@@ -104,6 +134,14 @@ public class VirtualPet {
     public void confused(){
         face.setMessage("I don't understand!");
         face.setImage("astonished");
+    }
+
+    public void takeABeat(int milliseconds){
+        try {
+            Thread.sleep(milliseconds); //milliseconds
+        } catch(Exception e){
+        
+        }
     }
 
 
