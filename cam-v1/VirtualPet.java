@@ -56,9 +56,9 @@ public class VirtualPet {
             face.setMessage("I did rock!");
             if(answer.equalsIgnoreCase("rock"))
             result = 0;
-            if(answer.equalsIgnoreCase("paper"))
+            else if(answer.equalsIgnoreCase("paper"))
             result = -1;
-            if(answer.equalsIgnoreCase("scissors"))
+            else if(answer.equalsIgnoreCase("scissors"))
             result = 1;
             
         }
@@ -68,9 +68,9 @@ public class VirtualPet {
             face.setMessage("I did paper!");
             if(answer.equalsIgnoreCase("rock"))
             result = 1;
-            if(answer.equalsIgnoreCase("paper"))
+            else if(answer.equalsIgnoreCase("paper"))
             result = 0;
-            if(answer.equalsIgnoreCase("scissors"))
+            else if(answer.equalsIgnoreCase("scissors"))
             result = -1;
 
         }
@@ -80,9 +80,9 @@ public class VirtualPet {
             face.setMessage("I did scissors!");
             if(answer.equalsIgnoreCase("rock"))
             result = -1;
-            if(answer.equalsIgnoreCase("paper"))
+            else if(answer.equalsIgnoreCase("paper"))
             result = 1;
-            if(answer.equalsIgnoreCase("scissors"))
+            else if(answer.equalsIgnoreCase("scissors"))
             result = 0;
 
         }
@@ -114,17 +114,24 @@ public class VirtualPet {
         if(animal.equalsIgnoreCase("dog"))
         face.setImage("dog");
 
-        if(animal.equalsIgnoreCase("cat"))
+        else if(animal.equalsIgnoreCase("cat"))
         face.setImage("cat");
 
-        if(animal.equalsIgnoreCase("bird"))
+        else if(animal.equalsIgnoreCase("bird"))
         face.setImage("bird");
 
-        if(animal.equalsIgnoreCase("fish"))
+        else if(animal.equalsIgnoreCase("fish"))
         face.setImage("fish");
 
-        // face.setMessage("I don't know that animal!");
-        // face.setImage("confused");
+        else{
+        face.setMessage("I don't know that animal!");
+        face.setImage("confused");
+        }
+    }
+
+    public void explode(String answer){
+        if(answer.equalsIgnoreCase("abracadabra"))
+        face.setImage("ex");
     }
         
     public void gotInsulted(){
@@ -134,6 +141,17 @@ public class VirtualPet {
     public void confused(){
         face.setMessage("I don't understand!");
         face.setImage("astonished");
+    }
+
+    public void reveal(){
+        face.setMessage("I have a secret...");
+        takeABeat(3000);
+        face.setMessage("I am actually a magician!");
+        face.setImage("magic");
+        takeABeat(3000);
+        face.setMessage("Now for my final trick...");
+        takeABeat(3000);
+        face.setImage("disappear");
     }
 
     public void takeABeat(int milliseconds){
