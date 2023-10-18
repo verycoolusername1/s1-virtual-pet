@@ -30,6 +30,7 @@ public class Runner {
             
         String ans4 = getAnswer("Rock, Paper or Scissors?");
         p.game(ans4);
+        takeABeat(3000);
 
         String ans5 = getAnswer("Rematch?");
         if(ans5.equalsIgnoreCase("yes")){
@@ -38,7 +39,6 @@ public class Runner {
         }
         else
         p.confused();
-
         }
 
         else
@@ -56,11 +56,6 @@ public class Runner {
         p.defaultMode();
 
         p.reveal();
-        
-
-        
-
-
     }
 
     public String getAnswer(String q){
